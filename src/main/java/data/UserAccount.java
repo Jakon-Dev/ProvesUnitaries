@@ -11,6 +11,22 @@ final public class UserAccount {
     }
 
     public String getUsername() { return username; }
-    
-    // UNFINISHED
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserAccount that = (UserAccount) o;
+        return username.equals(that.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return username.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccount{username='" + username + "'}";
+    }
 }
