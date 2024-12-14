@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class JourneyServiceTest {
 
     @Test
-    void getInitDate() {
+    void testGetInitDate() {
         LocalDateTime now = LocalDateTime.now();
         JourneyService journey = new JourneyService(now);
         assertEquals(now, journey.getInitDate());
     }
 
     @Test
-    void getEndDate() {
+    void testGetEndDate() {
         LocalDateTime now = LocalDateTime.now();
         JourneyService journey = new JourneyService(now);
         LocalDateTime endDate = now.plusHours(1);
@@ -26,35 +26,35 @@ class JourneyServiceTest {
     }
 
     @Test
-    void getDistance() {
+    void testGetDistance() {
         JourneyService journey = new JourneyService(LocalDateTime.now());
         journey.setServiceFinish(LocalDateTime.now(), 15.5f, 60, 15.5f, BigDecimal.valueOf(30));
         assertEquals(15.5f, journey.getDistance());
     }
 
     @Test
-    void getDuration() {
+    void testGetDuration() {
         JourneyService journey = new JourneyService(LocalDateTime.now());
         journey.setServiceFinish(LocalDateTime.now(), 20.0f, 120, 10.0f, BigDecimal.valueOf(40));
         assertEquals(120, journey.getDuration());
     }
 
     @Test
-    void getAvgSpeed() {
+    void testGetAvgSpeed() {
         JourneyService journey = new JourneyService(LocalDateTime.now());
         journey.setServiceFinish(LocalDateTime.now(), 50.0f, 120, 25.0f, BigDecimal.valueOf(100));
         assertEquals(25.0f, journey.getAvgSpeed());
     }
 
     @Test
-    void getImportValue() {
+    void testGetImportValue() {
         JourneyService journey = new JourneyService(LocalDateTime.now());
         journey.setServiceFinish(LocalDateTime.now(), 30.0f, 90, 20.0f, BigDecimal.valueOf(60));
         assertEquals(BigDecimal.valueOf(60), journey.getImportValue());
     }
 
     @Test
-    void isInProgress() {
+    void testIsInProgress() {
         JourneyService journey = new JourneyService(LocalDateTime.now());
         assertTrue(journey.isInProgress());
         journey.setServiceFinish(LocalDateTime.now(), 10.0f, 30, 20.0f, BigDecimal.valueOf(50));
@@ -62,7 +62,7 @@ class JourneyServiceTest {
     }
 
     @Test
-    void setServiceInit() {
+    void testSetServiceInit() {
         LocalDateTime newInitDate = LocalDateTime.now();
         JourneyService journey = new JourneyService(null);
         journey.setServiceInit(newInitDate);
